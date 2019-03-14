@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
     <PublishUrlHistory>publish\|/published/|ftps://github.com/rlanc24/conXion/</PublishUrlHistory>
-    <InstallUrlHistory>https://github.com/rlanc24/conXion/releases/</InstallUrlHistory>
+    <InstallUrlHistory>https://solorakvr%40dev.azure.com/solorakvr/conXion/_git/conXion/FIX/publish/|https://solorakvr%40dev.azure.com/solorakvr/conXion/_git/test/|https://github.com/rlanc24/conXion/releases/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />
