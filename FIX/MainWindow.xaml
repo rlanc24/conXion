@@ -1,0 +1,96 @@
+﻿<Window x:Name="conXionWindow" x:Class="FIX.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FIX"
+        mc:Ignorable="d"
+        Title="conXion" Height="445" Width="325" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30"/>
+    </WindowChrome.WindowChrome>
+    <Grid Background="#363E59">
+        <Grid x:Name="FIXWindow" VerticalAlignment="Top">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF363E59"/>
+                    <GradientStop Color="#FF17B2D4" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <StackPanel x:Name="WindowStackPanel" WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="ColapseWindowButton" Width="30" Height="30" Background="#FF4F6CF0" BorderBrush="#FF4F6CF0" Style="{DynamicResource ButtonStyle2}" Foreground="White" Content="&lt;" FontFamily="Arial Black" FontSize="18" FontWeight="Bold" Cursor="Hand" ToolTip="Collapse" Click="ColapseWindowEvent"/>
+                <Button x:Name="ExpandWindowButton" Width="30" Height="30" Background="#FF4F6CF0" BorderBrush="#FF4F6CF0" Style="{DynamicResource ButtonStyle2}" Foreground="White" Content="&gt;" FontFamily="Arial Black" FontSize="18" FontWeight="Bold" Cursor="Hand" ToolTip="Expand" Click="ExpandWindowEvent"/>
+                <Button Width="30" Height="30" Background="#FFF04F4F" BorderBrush="#FFF04F4F" Style="{DynamicResource ButtonStyle2}" Foreground="White" Content="X" FontFamily="Arial Black" FontSize="18" FontWeight="Bold" Click="CloseWindow" Cursor="Hand"/>
+            </StackPanel>
+            <Label Content="conXion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="201" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="30" VerticalContentAlignment="Center" Background="{x:Null}"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="390" Margin="0,50,0,0" VerticalAlignment="Top" Width="325">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid HorizontalAlignment="Left" Height="165" Margin="0,30,0,0" VerticalAlignment="Top" Width="325" Grid.RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="ConnectedPrinters" HorizontalAlignment="Left" Height="145" Margin="0,20,0,0" VerticalAlignment="Top" Width="153" BorderBrush="White" SelectionChanged="InstalledPrinterFocus" GotFocus="ResetSwitch"/>
+                <ListBox x:Name="AvailablePrinters" HorizontalAlignment="Left" Height="145" Margin="9.333,20,0,0" VerticalAlignment="Top" Width="153" Grid.Column="1" BorderBrush="White" SelectionChanged="AvailablePrinterFocus" GotFocus="ResetSwitch"/>
+                <Label Content="AVAILABLE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Foreground="White" FontFamily="Arial Black" FontSize="10" Height="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="161,0,0,0" Grid.ColumnSpan="2" Background="#FFC12121"/>
+                <Label Content="INSTALLED" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Foreground="White" FontFamily="Arial Black" FontSize="10" Height="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Background="#FF34C121"/>
+                <Button x:Name="PrinterSwitch" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="153,20,0,0" VerticalAlignment="Top" Width="20" Height="145" FontFamily="Arial Black" Style="{DynamicResource ButtonStyle2}" Foreground="White" Click="PrinterSwitchEngage" Background="#FF21A4C1" BorderBrush="#FF21A4C1"/>
+            </Grid>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="325" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,20.333,0,0" Grid.Row="1" Background="#FF21A4C1" Content="DRIVES"/>
+            <Label Content="PRINTERS" HorizontalAlignment="Left" VerticalAlignment="Top" Width="325" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1"/>
+            <Grid HorizontalAlignment="Left" Height="165" Margin="0,50.333,0,-20" Grid.Row="1" VerticalAlignment="Top" Width="325">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="MapH" Content="HOME (H:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1"/>
+                <Label x:Name="MapI" Content="ASSESSMENTS (I:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,25,0,0" Background="#FF21A4C1"/>
+                <Label x:Name="MapN" Content="CDAPPS (N:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,50,0,0" Background="#FF21A4C1"/>
+                <Label x:Name="MapP" Content="APPS (P:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,75,0,0" Background="#FF21A4C1"/>
+                <Label x:Name="MapT" Content="CURRICULUM (T:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,100,0,0" Background="#FF21A4C1"/>
+                <Label x:Name="MapG" Content="DATA (G:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="225,0,0,0" Background="#FF21A4C1"/>
+                <Label x:Name="MapM" Content="MENU (M:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="225,25,0,0" Background="#FF21A4C1"/>
+                <Label x:Name="MapO" Content="PHOTOS (O:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="225,50,0,0" Background="#FF21A4C1"/>
+                <Label x:Name="MapQ" Content="APPS (Q:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="225,75,0,0" Background="#FF21A4C1"/>
+                <Label x:Name="MapU" Content="USRHOME (U:)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Foreground="White" FontFamily="Arial Black" FontSize="8" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="225,100,0,0" Background="#FF21A4C1"/>
+                <Button Content="CHECK CONNECTION" HorizontalAlignment="Left" Margin="100,25,0,0" VerticalAlignment="Top" Width="125" Height="25" BorderBrush="{x:Null}" Foreground="White" FontFamily="Arial Black" FontSize="10" Background="#FF4CA240" Style="{DynamicResource ButtonStyle2}" Cursor="Hand" Click="CheckDriveConnection"/>
+                <Button Content="RECONNECT" HorizontalAlignment="Left" Margin="100,74,0,0" VerticalAlignment="Top" Width="125" Height="25" BorderBrush="{x:Null}" Foreground="White" FontFamily="Arial Black" FontSize="10" Background="#FFDC772C" Style="{DynamicResource ButtonStyle2}" Click="ReconnectDrives" Cursor="Hand"/>
+            </Grid>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="325" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,175.333,0,0" Grid.Row="1" Background="#FF21A4C1" Content=""/>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="325" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0.333,0,0" Grid.Row="1" Background="#FF21A4C1" Content=""/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="390" Margin="335,50,0,0" VerticalAlignment="Top" Width="660">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="ADVANCED INFORMATION" HorizontalAlignment="Left" VerticalAlignment="Top" Width="660" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1"/>
+            <Label Content="USER INFORMATION" HorizontalAlignment="Left" VerticalAlignment="Top" Width="325" Foreground="White" FontFamily="Arial Black" FontSize="10" Height="23" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1" Margin="0,39,0,0"/>
+            <TextBox x:Name="UserInfo" HorizontalAlignment="Left" Height="319" Margin="0,61,0,0" Text="ERROR" VerticalAlignment="Top" Width="325" Grid.RowSpan="2" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderBrush="White" Style="{DynamicResource TextBoxStyle1}" FontFamily="Arial" FontSize="10"/>
+            <Label Content="SYSTEM INFORMATION" HorizontalAlignment="Left" VerticalAlignment="Top" Width="325" Foreground="White" FontFamily="Arial Black" FontSize="10" Height="23" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1" Margin="335,39,0,0"/>
+            <TextBox x:Name="SystemInfo" HorizontalAlignment="Left" Height="318" Margin="335,62,0,0" Text="ERROR" VerticalAlignment="Top" Width="325" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderBrush="White" Style="{DynamicResource TextBoxStyle1}" FontFamily="Arial" FontSize="10" Grid.RowSpan="2" UseLayoutRounding="False"/>
+        </Grid>
+        <Label Content="ADVANCED SYSTEM CONTROL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1001" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1" Margin="-8,445,0,0"/>
+    </Grid>
+</Window>

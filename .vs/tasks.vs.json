@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-Test",
+      "appliesTo": "FIX/Media/Test.jpg",
+      "type": "launch"
+    },
+    {
+      "taskName": "task-Media",
+      "appliesTo": "FIX/Media/",
+      "type": "launch"
+    }
+  ]
+}
