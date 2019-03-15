@@ -2,10 +2,10 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
-    <PublishUrlHistory>publish\|/published/|ftps://github.com/rlanc24/conXion/</PublishUrlHistory>
-    <InstallUrlHistory>https://solorakvr%40dev.azure.com/solorakvr/conXion/_git/conXion/FIX/publish/|https://solorakvr%40dev.azure.com/solorakvr/conXion/_git/test/|https://github.com/rlanc24/conXion/releases/</InstallUrlHistory>
+    <PublishUrlHistory>\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXion\|publish\|\\eqsun2109001\rlanc24%24\conXionPublish\|\\eqsun2109001\rlanc24%24\Documents\publish\</PublishUrlHistory>
+    <InstallUrlHistory>\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\rlanc24%24\publish\|\\eqsun2109001\rlanc24%24\Documents\publish\</InstallUrlHistory>
     <SupportUrlHistory />
-    <UpdateUrlHistory />
+    <UpdateUrlHistory>\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\rlanc24%24\publish\|\\eqsun2109001\rlanc24%24\Documents\publish\</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>

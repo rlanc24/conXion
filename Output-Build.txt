@@ -1,0 +1,11 @@
+﻿1>------ Build started: Project: FIX, Configuration: Debug Any CPU ------
+1>  FIX -> C:\Users\solor\Source\Repos\conXion\FIX\bin\Debug\conXion.exe
+Building FIX...
+2>------ Publish started: Project: FIX, Configuration: Debug Any CPU ------
+Connecting to 'C:\Users\solor\Source\Repos\conXion\FIX\publish\'...
+Publishing files...
+Publish success.
+Warning: Unable to view published application at \\eqsun2109001\rlanc24$\publish\Installer.htm.
+\\eqsun2109001\rlanc24$\publish\Installer.htm
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Publish: 1 succeeded, 0 failed, 0 skipped ==========

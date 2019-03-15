@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIX"
         mc:Ignorable="d"
-        Title="conXion" Height="445" Width="325" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="conXion" Height="445" Width="995" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="30"/>
     </WindowChrome.WindowChrome>
@@ -85,11 +85,18 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Content="ADVANCED INFORMATION" HorizontalAlignment="Left" VerticalAlignment="Top" Width="660" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1"/>
-            <Label Content="USER INFORMATION" HorizontalAlignment="Left" VerticalAlignment="Top" Width="325" Foreground="White" FontFamily="Arial Black" FontSize="10" Height="23" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1" Margin="0,39,0,0"/>
-            <TextBox x:Name="UserInfo" HorizontalAlignment="Left" Height="319" Margin="0,61,0,0" Text="ERROR" VerticalAlignment="Top" Width="325" Grid.RowSpan="2" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderBrush="White" Style="{DynamicResource TextBoxStyle1}" FontFamily="Arial" FontSize="10"/>
-            <Label Content="SYSTEM INFORMATION" HorizontalAlignment="Left" VerticalAlignment="Top" Width="325" Foreground="White" FontFamily="Arial Black" FontSize="10" Height="23" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1" Margin="335,39,0,0"/>
-            <TextBox x:Name="SystemInfo" HorizontalAlignment="Left" Height="318" Margin="335,62,0,0" Text="ERROR" VerticalAlignment="Top" Width="325" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderBrush="White" Style="{DynamicResource TextBoxStyle1}" FontFamily="Arial" FontSize="10" Grid.RowSpan="2" UseLayoutRounding="False"/>
+            <Label Content="ADVANCED" HorizontalAlignment="Left" VerticalAlignment="Top" Width="660" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1"/>
+            <Label x:Name="InformationLabel" Content="USER INFORMATION" HorizontalAlignment="Left" VerticalAlignment="Top" Width="425" Foreground="White" FontFamily="Arial Black" FontSize="10" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1" Margin="0,36,0,0"/>
+            <TextBox x:Name="InformationTxtBox" HorizontalAlignment="Left" Height="319" Margin="0,61,0,0" Text="ERROR" VerticalAlignment="Top" Width="425" Grid.RowSpan="2" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderBrush="White" Style="{DynamicResource TextBoxStyle1}" FontFamily="Arial" FontSize="10"/>
+            <Button Content="&gt;" HorizontalAlignment="Left" Margin="400,36,0,0" VerticalAlignment="Top" Width="25" Height="25" BorderBrush="#FF4F6CF0" Foreground="White" FontFamily="Arial Black" FontSize="18" Background="#FF4F6CF0" Style="{DynamicResource ButtonStyle2}" Click="AdvancedInfoNext" Cursor="Hand" ToolTip="Next"/>
+            <Button Content="&lt;" HorizontalAlignment="Left" Margin="375,36,0,0" VerticalAlignment="Top" Width="25" Height="25" BorderBrush="#FF4F6CF0" Foreground="White" FontFamily="Arial Black" FontSize="18" Background="#FF4F6CF0" Style="{DynamicResource ButtonStyle2}" Click="AdvancedInfoBack" Cursor="Hand" ToolTip="Previous"/>
+            <Button Content="RESTART PAPERCUT" HorizontalAlignment="Left" Margin="431,101,-2,0" VerticalAlignment="Top" Width="231" Height="28" BorderBrush="{x:Null}" Foreground="White" FontFamily="Arial Black" FontSize="10" Background="#FF39B54A" Style="{DynamicResource ButtonStyle2}" Cursor="Hand" Click="RestartPapercut"/>
+            <Image HorizontalAlignment="Left" Height="67" Margin="432,36,0,0" VerticalAlignment="Top" Width="228" Source="Media/papercutmf_slider2.png"/>
+            <Grid x:Name="FunctionsSectionGrid" HorizontalAlignment="Left" Height="244" Margin="432,136,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="228">
+                <Label x:Name="WIPBanner" Content="WORK&#xA;IN&#xA;PROGRESS" HorizontalAlignment="Left" VerticalAlignment="Top" Width="228" Foreground="White" FontFamily="Arial Black" FontSize="30" Height="244" VerticalContentAlignment="Center" Background="#FF21A4C1"/>
+                <Button Content="&gt;" HorizontalAlignment="Left" Margin="203,219,0,0" VerticalAlignment="Top" Width="25" Height="25" BorderBrush="#FF4F6CF0" Foreground="White" FontFamily="Arial Black" FontSize="18" Background="#FF4F6CF0" Style="{DynamicResource ButtonStyle2}" Click="AdvancedFunctionsNext" Cursor="Hand" ToolTip="Next"/>
+                <Button Content="&lt;" HorizontalAlignment="Left" Margin="0,219,0,0" VerticalAlignment="Top" Width="25" Height="25" BorderBrush="#FF4F6CF0" Foreground="White" FontFamily="Arial Black" FontSize="18" Background="#FF4F6CF0" Style="{DynamicResource ButtonStyle2}" Click="AdvancedFunctionsBack" Cursor="Hand" ToolTip="Previous"/>
+            </Grid>
         </Grid>
         <Label Content="ADVANCED SYSTEM CONTROL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1001" Foreground="White" FontFamily="Arial Black" FontSize="18" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF21A4C1" Margin="-8,445,0,0"/>
     </Grid>

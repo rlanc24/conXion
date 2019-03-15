@@ -30,20 +30,31 @@ namespace FIX
 
         public static string SelectedPrinter;
 
+        public static string UserInfo;
+        public static string SystemInfo;
+
+        public static int CurrentInfoPanel = 0;
+
         public Storyboard ExpansionStoryboard;
         public Storyboard ExpansionWStoryboard;
 
         public Storyboard CollapseStoryboard;
         public Storyboard CollapseWStoryboard;
 
+        public Storyboard FunctionsSectionNextSB;
+        public Storyboard FunctionsSectionBackSB;
+
+        public static string SelectedFunctionPanel;
+
         public MainWindow()
         {
             InitializeComponent();
             CheckDriveConnectionS();
 
+            if (Directory.Exists(@"\\\\eqsun2109001\\Data\\Coredata")) {
                 Process process = new Process();
                 process.StartInfo.FileName = "powershell.exe";
-                process.StartInfo.Arguments = "/c net user " + Environment.UserName +" /domain"; // Note the /c command (*)
+                process.StartInfo.Arguments = "/c net user " + Environment.UserName + " /domain"; // Note the /c command (*)
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.RedirectStandardError = true;
@@ -51,30 +62,30 @@ namespace FIX
                 process.Start();
                 //* Read the output (or the error)
                 string output = process.StandardOutput.ReadToEnd();
-                Console.WriteLine("OP: "+output);
-                UserInfo.Text = output;
+                Console.WriteLine("OP: " + output);
+                UserInfo = output;
                 string err = process.StandardError.ReadToEnd();
                 Console.WriteLine(err);
                 process.WaitForExit();
-
-                if (!"U".Equals(output.Substring(0,1)))
-                {
-                    Process process1 = new Process();
-                    process1.StartInfo.FileName = "powershell.exe";
-                    process1.StartInfo.Arguments = "/c net user " + Environment.UserName; // Note the /c command (*)
-                    process1.StartInfo.UseShellExecute = false;
-                    process1.StartInfo.RedirectStandardOutput = true;
-                    process1.StartInfo.RedirectStandardError = true;
-                    process1.StartInfo.CreateNoWindow = true;
-                    process1.Start();
-                    //* Read the output (or the error)
-                    string output1 = process1.StandardOutput.ReadToEnd();
-                    Console.WriteLine("OP1: "+output1);
-                    UserInfo.Text = output1;
-                    string err1 = process1.StandardError.ReadToEnd();
-                    Console.WriteLine(err1);
-                    process1.WaitForExit();
-                }
+            }
+            else
+            {
+                Process process1 = new Process();
+                process1.StartInfo.FileName = "powershell.exe";
+                process1.StartInfo.Arguments = "/c net user " + Environment.UserName; // Note the /c command (*)
+                process1.StartInfo.UseShellExecute = false;
+                process1.StartInfo.RedirectStandardOutput = true;
+                process1.StartInfo.RedirectStandardError = true;
+                process1.StartInfo.CreateNoWindow = true;
+                process1.Start();
+                //* Read the output (or the error)
+                string output1 = process1.StandardOutput.ReadToEnd();
+                Console.WriteLine("OP1: " + output1);
+                UserInfo = output1;
+                string err1 = process1.StandardError.ReadToEnd();
+                Console.WriteLine(err1);
+                process1.WaitForExit();
+            }
 
             Process process2 = new Process();
             process2.StartInfo.FileName = "cmd.exe";
@@ -87,7 +98,7 @@ namespace FIX
             //* Read the output (or the error)
             string output2 = process2.StandardOutput.ReadToEnd();
             Console.WriteLine(output2);
-            SystemInfo.Text = output2;
+            SystemInfo = output2;
             string err2 = process2.StandardError.ReadToEnd();
             Console.WriteLine(err2);
             process2.WaitForExit();
@@ -110,6 +121,7 @@ namespace FIX
 
             AnimationSetup();
             UpdatePrinters();
+            InfoSectionUpdate();
 
             ColapseWindowButton.Visibility = Visibility.Collapsed;
 
@@ -575,6 +587,92 @@ namespace FIX
 
             CollapseStoryboard.Begin(this);
             CollapseWStoryboard.Begin(this);
+        }
+
+        public void InfoSectionUpdate()
+        {
+            if(CurrentInfoPanel == 0)
+            {
+                InformationLabel.Content = "USER INFORMATION";
+                InformationTxtBox.Text = UserInfo;
+            }
+            if (CurrentInfoPanel == 1)
+            {
+                InformationLabel.Content = "SYSTEM INFORMATION";
+                InformationTxtBox.Text = SystemInfo;
+            }
+        }
+
+        private void AdvancedInfoNext(object sender, RoutedEventArgs e)
+        {
+            if(CurrentInfoPanel >= 0 && CurrentInfoPanel <= 1)
+            {
+                CurrentInfoPanel += 1;
+
+                if(CurrentInfoPanel > 1)
+                {
+                    CurrentInfoPanel = 0;
+                }
+            }
+            InfoSectionUpdate();
+        }
+
+        private void AdvancedInfoBack(object sender, RoutedEventArgs e)
+        {
+            if (CurrentInfoPanel >= 0 && CurrentInfoPanel <= 1)
+            {
+                CurrentInfoPanel -= 1;
+
+                if (CurrentInfoPanel < 0)
+                {
+                    CurrentInfoPanel = 1;
+                }
+            }
+            InfoSectionUpdate();
+        }
+
+        private void RestartPapercut(object sender, RoutedEventArgs e)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "powershell.exe";
+            process.StartInfo.Arguments = "/c Stop-Process -ProcessName pc-client"; // Note the /c command (*)
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.CreateNoWindow = true;
+            process.Start();
+            //* Read the output (or the error)
+            string output = process.StandardOutput.ReadToEnd();
+            Console.WriteLine("OP: " + output);
+            UserInfo = output;
+            string err = process.StandardError.ReadToEnd();
+            Console.WriteLine(err);
+            process.WaitForExit();
+
+            Process.Start("\\\\eqsun2109003\\Apps\\PaperCut NG\\client\\win\\pc-client.exe");
+        }
+
+        private void AdvancedFunctionsNext(object sender, RoutedEventArgs e)
+        {
+
+            DoubleAnimation FunctionNextDA = new DoubleAnimation();
+            FunctionNextDA.From = 0;
+            FunctionNextDA.To = 228;
+            FunctionNextDA.Duration = new Duration(TimeSpan.FromSeconds(0.25));
+            FunctionNextDA.AutoReverse = false;
+
+            FunctionsSectionNextSB = new Storyboard();
+            FunctionsSectionNextSB.Children.Add(FunctionNextDA);
+            Storyboard.SetTargetName(FunctionNextDA, WIPBanner.Name);
+            Storyboard.SetTargetProperty(FunctionNextDA, new PropertyPath(Window.LeftProperty));
+
+            FunctionsSectionNextSB.Begin(this);
+
+        }
+
+        private void AdvancedFunctionsBack(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
