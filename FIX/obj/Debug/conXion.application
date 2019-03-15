@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="file://eqsun2109001/Data/Coredata/Common/ICTSupport/conXionInstaller/conXion.application" />
+    <deploymentProvider codebase="https://github.com/rlanc24/conXion/tree/master/FIX/publish/conXion.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>icNVCy9npXtJt8vY5+5tD4M9D4gIk3wVjjfxl2rKZYA=</dsig:DigestValue>
+        <dsig:DigestValue>xJA92Pkm+OkWOcDunfjm4FSXnSSPTjtdinYHUC1ndb0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

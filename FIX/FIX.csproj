@@ -14,10 +14,10 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\</PublishUrl>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>publish/</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
+    <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -25,15 +25,15 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\</InstallUrl>
-    <UpdateUrl>\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\</UpdateUrl>
+    <InstallUrl>https://github.com/rlanc24/conXion/tree/master/FIX/publish/</InstallUrl>
+    <UpdateUrl>https://github.com/rlanc24/conXion/tree/master/FIX/publish/</UpdateUrl>
     <TargetCulture>en-AU</TargetCulture>
     <ProductName>conXion</ProductName>
     <PublisherName>Ryan Lancelot</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>Installer.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.1.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

@@ -2,8 +2,8 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
-    <PublishUrlHistory>\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXion\|publish\|\\eqsun2109001\rlanc24%24\conXionPublish\|\\eqsun2109001\rlanc24%24\Documents\publish\</PublishUrlHistory>
-    <InstallUrlHistory>\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\rlanc24%24\publish\|\\eqsun2109001\rlanc24%24\Documents\publish\</InstallUrlHistory>
+    <PublishUrlHistory>publish/|https://github.com/rlanc24/conXion/tree/master/FIX/publish/|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXion\|publish\</PublishUrlHistory>
+    <InstallUrlHistory>https://github.com/rlanc24/conXion/tree/master/FIX/publish/|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\rlanc24%24\publish\</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory>\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXionInstaller\|\\eqsun2109001\Data\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\Coredata\Common\ICTSupport\conXion\|\\eqsun2109001\rlanc24%24\publish\|\\eqsun2109001\rlanc24%24\Documents\publish\</UpdateUrlHistory>
     <BootstrapperUrlHistory />
